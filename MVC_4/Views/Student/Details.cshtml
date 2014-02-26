@@ -1,0 +1,25 @@
+﻿@model MVC_4.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="show">
+<h2>Details</h2>
+    </div>
+<fieldset>
+    <legend>Student</legend>
+    
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+<div class="show">
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+</div>

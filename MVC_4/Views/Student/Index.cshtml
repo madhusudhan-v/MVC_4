@@ -1,0 +1,24 @@
+﻿@using System.Web.Optimization
+@using MVC_4.Models
+@model IEnumerable<MVC_4.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+   
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        @foreach (var item in Model) {
+            Html.RenderPartial("Details",item);
+        }
+    </tr>
+</table>
+
+<script type="text/javascript" src="~/Scripts/ScriptsPreDefined/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/js1.js"></script>

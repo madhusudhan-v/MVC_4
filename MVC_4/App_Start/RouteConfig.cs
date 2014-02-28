@@ -18,6 +18,16 @@ namespace MVC_4
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Student", action = "Index", id = UrlParameter.Optional }
             );
+            //routes.MapRoute(
+            //    name:"",
+            //    url: "{controller}",
+            //    defaults: new { controller = "Student", action = "Index", id = UrlParameter.Optional }
+            //    );
+            routes.MapRoute(
+                name: "googly",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Subject", action = "Index", id = UrlParameter.Optional }
+                );
         }
     }
 }

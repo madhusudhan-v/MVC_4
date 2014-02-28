@@ -168,6 +168,13 @@
     <Compile Include="Services\ISubjectService.cs" />
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\SubjectService.cs" />
+    <Compile Include="Views\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -192,7 +199,10 @@
     <Content Include="Scripts\ScriptsPreDefined\knockout-2.1.0.js" />
     <Content Include="Scripts\ScriptsPreDefined\modernizr-2.5.3.js" />
     <None Include="Scripts\ScriptsPreDefined\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Views\test.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -200,15 +210,13 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Student\Index_.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Student\Details.cshtml" />

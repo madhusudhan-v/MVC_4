@@ -1,6 +1,8 @@
-﻿@model MVC_4.Models.Student
+﻿@using MVC_4.Models
+@model MVC_4.Models.Student
 
 @{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Create";
 }
 
@@ -25,7 +27,9 @@
             <input type="submit" value="Create" />
         </p>
     </fieldset>
-}
+  }
+@Html.Action("Create", "Subject")
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

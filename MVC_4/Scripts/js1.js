@@ -1,9 +1,13 @@
 ﻿function makeHide() {
-    alert("1");
+   // alert("d");
     $(".show").hide();
 }
 
 
-$(document).ready(function() {
+$(function() {
     makeHide();
 });
+
+//(document).load(){
+//    alert("load");
+//};

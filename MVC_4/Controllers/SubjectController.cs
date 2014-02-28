@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using MVC_4.Models;
 
@@ -11,14 +7,14 @@ namespace MVC_4.Controllers
 {
     public class SubjectController : Controller
     {
-        private SubjectDataContext db = new SubjectDataContext();
+        private readonly SubjectDataContext _db = new SubjectDataContext();
 
         //
         // GET: /Subject/
 
         public ActionResult Index()
         {
-            return View(db.Subjects.ToList());
+            return View(_db.Subjects.ToList());
         }
 
         //
@@ -26,7 +22,7 @@ namespace MVC_4.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Subject subject = db.Subjects.Find(id);
+            Subject subject = _db.Subjects.Find(id);
             if (subject == null)
             {
                 return HttpNotFound();
@@ -51,8 +47,8 @@ namespace MVC_4.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Subjects.Add(subject);
-                db.SaveChanges();
+                _db.Subjects.Add(subject);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -64,7 +60,7 @@ namespace MVC_4.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Subject subject = db.Subjects.Find(id);
+            Subject subject = _db.Subjects.Find(id);
             if (subject == null)
             {
                 return HttpNotFound();
@@ -81,8 +77,8 @@ namespace MVC_4.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(subject).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(subject).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(subject);
@@ -93,7 +89,7 @@ namespace MVC_4.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Subject subject = db.Subjects.Find(id);
+            Subject subject = _db.Subjects.Find(id);
             if (subject == null)
             {
                 return HttpNotFound();
@@ -108,15 +104,15 @@ namespace MVC_4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Subject subject = db.Subjects.Find(id);
-            db.Subjects.Remove(subject);
-            db.SaveChanges();
+            Subject subject = _db.Subjects.Find(id);
+            _db.Subjects.Remove(subject);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            _db.Dispose();
             base.Dispose(disposing);
         }
     }
